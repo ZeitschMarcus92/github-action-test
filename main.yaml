@@ -6,7 +6,7 @@ jobs:
   steps: 
     - name : "clone git repo"
       run: | 
-       git@github.com:ZeitschMarcus92/mein-erster-repo.git
+       git clone git@github.com:ZeitschMarcus92/mein-erster-repo.git
        git fetch --all
        git checkout master
         
