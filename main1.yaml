@@ -1,0 +1,22 @@
+name: Node. js CI   # Dies ist der Name des Workflows
+on: [push] # Dieser Workflow wird bei jedem Push-Ereignis ausgelöst
+jobs:
+  build:
+    runs-on: ubuntu-latest # Der Workflow wird auf der neuesten Ubuntu-Version ausgeführt
+    steps: 
+      - uses: action/checkout@v4.2.2
+      # - name : "clone git repo"
+        # run: | 
+        #  git clone https://github.com/ZeitschMarcus92/github-action-test.git
+        # git fetch --all
+        # git checkout master
+        
+      - name: "Node.js 18 istallieren"
+        uses: action/setup-node@v4 
+        with: 
+          node-Version: "18"
+        # run: | 
+        #  curl -faSl https://deb.nodesource.com/setup_18.x  | sudo -E bash
+        #  sudo apt-get install -y nodejs
+        #  node -v
+        #  npm -v
