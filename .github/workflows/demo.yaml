@@ -40,5 +40,4 @@ jobs:
       - name: Eigene Nachricht ausgeben
         run: echo "Workflow läuft erfolgreich!"
 
-      - name: Festplattennutzung anzeigen
-        uses: dawidd6/action-check-disks@v1
+      
