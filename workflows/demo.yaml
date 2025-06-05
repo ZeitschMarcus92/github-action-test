@@ -1,0 +1,41 @@
+name: Demo Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js 18 installieren
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Python 3.11 installieren
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: node_modules cache verwenden
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Node-Version ausgeben
+        run: node -v
+
+      - name: Python-Version ausgeben
+        run: python --version
+
+      - name: Eigene Nachricht ausgeben
+        run: echo "Workflow läuft erfolgreich!"
